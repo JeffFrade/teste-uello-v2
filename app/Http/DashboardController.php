@@ -27,7 +27,11 @@ class DashboardController extends Controller
 
     public function import(Request $request)
     {
-        $this->csv->import($request->file('csv'));
+        $request = $this->validate($request, [
+            'csv' => 'required|file'
+        ]);
+
+        $this->csv->import($request['csv']);
 
         return redirect(route('dashboard'));
     }
