@@ -59,7 +59,7 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="container-fluid">
-
+                            {!! PaginateHelper::paginateWithParams($clientes, []) !!}
                         </div>
                     </div>
 
