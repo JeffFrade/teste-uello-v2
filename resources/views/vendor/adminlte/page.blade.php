@@ -45,6 +45,7 @@
             {{-- Main Content --}}
             <div class="content">
                 <div class="{{ config('adminlte.classes_content') ?: $def_container_class }}">
+                    @include('util.errors')
                     @yield('content')
                 </div>
             </div>
@@ -66,6 +67,12 @@
 
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-notify.min.js') }}"></script>
+    <script type="text/javascript">
+        $('.form-error').each(function (index) {
+            $.notify({message: $(this).text()}, {type: 'danger', z_index: 100000});
+        });
+    </script>
     @stack('js')
     @yield('js')
 @stop
