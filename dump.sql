@@ -99,6 +99,7 @@ CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -115,7 +116,9 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','admin@mail.com','$2y$10$cnNC8FgKIFNq.16FnXec1.ALOecMfkCIgs2IaB5H0hmTkbVz4T4aG','BKZyEXa2Ow','2020-07-01 12:26:38','2020-07-01 12:26:38',NULL);
+INSERT INTO users
+(id, name, email, email_verified_at, password, remember_token, created_at, updated_at, deleted_at) VALUES(1, 'Admin', 'admin@mail.com', '2020-07-01 11:42:54.0', '$2y$10$dBGQdOge.vlgGTGW/qwBEuSuGo6dgEAlhJsuDG.KjXK3LO4c5QePi', 'WmiClyOWvG', '2020-07-01 11:42:54.0', '2020-07-01 11:42:54.0', NULL);
+
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
