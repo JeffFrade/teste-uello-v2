@@ -19,8 +19,6 @@ class Geolocation
             ]
         ])->getBody()->getContents())->results;
 
-        $result = $result[0];
-
-        return $result->geometry->location;
+        return $result[0];
     }
 }

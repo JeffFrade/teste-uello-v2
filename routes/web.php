@@ -19,4 +19,6 @@ Auth::routes(['register' => false]);
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
+    Route::post('/import', 'DashboardController@import')->name('import');
+    Route::get('/export', 'DashboardController@export')->name('export');
 });
